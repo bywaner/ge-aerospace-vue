@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compute Product</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Compute Product</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/General_Electric_logo.svg/2560px-General_Electric_logo.svg.png" width="200" />
+      <p>Number A: {{ numA }}</p>
+      <p>Number B: {{ numB }}</p>
+
+      <button v-if="!showResult" @click="compute">Compute</button>
+      <p v-else>Product: {{ product }}</p>
+    </div>
+
+    <script>
+      const { createApp } = Vue
+
+      createApp({
+        data() {
+          return {
+            numA: 8,
+            numB: 5,
+            showResult: false,
+            product: null
+          }
+        },
+        methods: {
+          compute() {
+            this.product = this.numA * this.numB
+            this.showResult = true
+          }
+        }
+      }).mount('#app')
+    </script>
+  </body>
+</html>
